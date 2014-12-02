@@ -1,10 +1,10 @@
 {
-    "name": "mint-soft/authenticate",
+    "name": "mint-soft/authentication",
     "description": "Zend Framework 2 module for users authentication",
     "type": "library",
     "license": "MIT",
     "keywords": [
-        "authentcation",
+        "authentication",
         "user",
         "authorize",
         "login"
@@ -29,8 +29,8 @@
     },
     "autoload": {
         "psr-0": {
-            "MintSoft\\Authenticate": "src/",
-            "AuthorizeTest": "tests/"
+            "MintSoft\\Authentication": "src/",
+            "AuthenticationTest": "tests/"
         }
     }
 }
