@@ -7,7 +7,7 @@
         "authentcation",
         "user",
         "authorize",
-        "login",
+        "login"
     ],
     "homepage": "https://github.com/sokool/authenticate",
     "require": {
