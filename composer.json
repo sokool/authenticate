@@ -1,17 +1,15 @@
 {
-    "name": "mint-soft/authorize",
-    "description": "Zend Framework 2 module for Authorized access to system resources",
+    "name": "mint-soft/authenticate",
+    "description": "Zend Framework 2 module for users authentication",
     "type": "library",
     "license": "MIT",
     "keywords": [
-        "rbac",
-        "acl",
+        "authentcation",
+        "user",
         "authorize",
-        "access",
-        "role",
-        "permission"
+        "login",
     ],
-    "homepage": "https://github.com/sokool/authorize",
+    "homepage": "https://github.com/sokool/authenticate",
     "require": {
         "php": ">=5.4",
         "zendframework/zend-modulemanager": ">= 2.3",
@@ -31,7 +29,7 @@
     },
     "autoload": {
         "psr-0": {
-            "MintSoft\\Authorize": "src/",
+            "MintSoft\\Authenticate": "src/",
             "AuthorizeTest": "tests/"
         }
     }
