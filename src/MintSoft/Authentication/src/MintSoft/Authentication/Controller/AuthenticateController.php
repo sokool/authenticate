@@ -5,7 +5,7 @@
  * Date: 13.10.14
  * Time: 21:02
  */
-namespace Authenticate\Controller;
+namespace MintSoft\Authentication\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 

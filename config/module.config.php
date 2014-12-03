@@ -1,9 +1,14 @@
 <?php
 
 return [
+    'mint-soft-authentication' => [
+        'on-login' => function() {
+            echo ' taaakk';
+        }
+    ],
     'controllers' => array(
         'invokables' => array(
-            'Authenticate\Authenticate' => 'Authenticate\Controller\AuthenticateController',
+            'MintSoft\Authenticate' => 'MintSoft\Authentication\Controller\AuthenticateController',
         ),
     ),
     'router'      => array(

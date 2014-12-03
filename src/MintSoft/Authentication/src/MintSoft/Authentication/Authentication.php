@@ -17,7 +17,7 @@ class Authentication extends AuthenticationService implements EventManagerAwareI
         EVENT_LOGOUT = 'on.logout';
 
     protected $defaultListeners = [
-        'Authenticate\Listener\LogListener'
+        'MintSoft\Authentication\Listener\LogListener'
     ];
 
     protected function attachDefaultListeners()

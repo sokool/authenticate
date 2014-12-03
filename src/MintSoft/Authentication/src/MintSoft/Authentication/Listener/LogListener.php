@@ -5,10 +5,10 @@
  * Date: 24.11.14
  * Time: 15:26
  */
-namespace Authenticate\Listener;
 
-use Authenticate\Authentication;
-use Nette\Diagnostics\Debugger;
+namespace MintSoft\Authentication\Listener;
+
+use MintSoft\Authentication\Authentication;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 use Zend\EventManager\ListenerAggregateTrait;

@@ -12,16 +12,17 @@ use Zend\Authentication\Result;
 
 class CallbackAdapter extends AuthenticationAdapter
 {
-    protected $options;
+    protected $callback;
 
-    public function __construct(array $options)
+    public function __construct(\Closure $callback)
     {
-        $this->options = $options;
+        $this->callback = $callback;
     }
 
     public function authenticate()
     {
-
+echo 'jedziemy!';
+        exit;
         $result = [
             'code'     => Result::SUCCESS,
             'identity' => $this->getIdentity(),
