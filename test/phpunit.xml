@@ -1,10 +1,10 @@
 <phpunit bootstrap="./Bootstrap.php" colors="true">
     <testsuite name="Mint Software Authorize Module Tests">
-        <directory>./AuthorizeTest</directory>
+        <directory>./AuthenticationTest</directory>
     </testsuite>
     <filter>
         <whitelist>
-            <directory suffix=".php">../src/MintSoft/Authorize/</directory>
+            <directory suffix=".php">../src/MintSoft/Authentication/</directory>
         </whitelist>
     </filter>
     <logging>

@@ -6,7 +6,7 @@
  * Time: 16:16
  */
 
-namespace Authenticate\Factory;
+namespace MintSoft\Authentication\Factory;
 
 use Zend\Authentication\Storage\Session as SessionStorage;
 use Zend\ServiceManager\FactoryInterface;

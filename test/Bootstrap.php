@@ -18,7 +18,7 @@ final class Bootstrap
         $config = [
             'Zend\Loader\StandardAutoloader' => [
                 'namespaces' => [
-                    'AuthorizeTest' => __DIR__ . '/AuthorizeTest',
+                    'AuthenticationTest' => __DIR__ . '/AuthenticationTest',
                 ],
             ]
         ];

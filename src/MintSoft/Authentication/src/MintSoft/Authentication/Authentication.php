@@ -1,7 +1,6 @@
 <?php
-namespace Authenticate;
+namespace MintSoft\Authentication;
 
-use Nette\Diagnostics\Debugger;
 use Zend\Authentication\Adapter\AdapterInterface;
 use Zend\Authentication\AuthenticationService as AuthenticationService;
 use Zend\EventManager\EventManagerAwareInterface;

@@ -1,7 +1,7 @@
 <?php
 return [
     'modules'                 => [
-        'MintSoft\Authorize'
+        'MintSoft\Authentication'
     ],
     'module_listener_options' => [
         'module_paths' => [

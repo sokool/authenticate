@@ -6,9 +6,9 @@
  * Time: 18:05
  */
 
-namespace Authenticate\Factory;
+namespace MintSoft\Authentication\Factory;
 
-use Authenticate\Adapter\CallbackAdapter;
+use MintSoft\Authentication\Adapter\CallbackAdapter;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 

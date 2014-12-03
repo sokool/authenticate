@@ -5,7 +5,7 @@
  * Date: 13.10.14
  * Time: 18:06
  */
-namespace Authenticate\Adapter;
+namespace MintSoft\Authentication\Adapter;
 
 use Zend\Authentication\Adapter\AbstractAdapter as AuthenticationAdapter;
 use Zend\Authentication\Result;
