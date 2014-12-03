@@ -5,9 +5,9 @@
  * Date: 25.11.14
  * Time: 08:54
  */
-namespace Authenticate\Mvc\Controller\Plugin;
+namespace MintSoft\Authentication\Mvc\Controller\Plugin;
 
-use Authenticate\Authentication as AuthenticationService;
+use MintSoft\Authentication\Authentication as AuthenticationService;
 use Zend\Mvc\Controller\Plugin\AbstractPlugin;
 
 class Authentication extends AbstractPlugin
@@ -21,12 +21,13 @@ class Authentication extends AbstractPlugin
 
     public function login($username, $password)
     {
-        $this->authenticationService
+        $adapter = $this
+            ->authenticationService
             ->getAdapter()
-            ->setIdentity($username)
-            ->setCredential($password);
+            ->setCredential($password)
+            ->setIdentity($username);
 
-        return $this->authenticationService->authenticate();
+        return $this->authenticationService->authenticate($adapter);
     }
 
     public function logout()

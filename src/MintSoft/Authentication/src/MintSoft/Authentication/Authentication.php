@@ -1,8 +1,13 @@
 <?php
 namespace MintSoft\Authentication;
 
+use MintSoft\Authentication\Adapter\FakeAdapter;
+use MintSoft\Authentication\Event\AuthenticationEvent;
+use Nette\Diagnostics\Debugger;
+use Zend\Authentication\Adapter;
 use Zend\Authentication\Adapter\AdapterInterface;
 use Zend\Authentication\AuthenticationService as AuthenticationService;
+use Zend\Authentication\Storage;
 use Zend\EventManager\EventManagerAwareInterface;
 use Zend\EventManager\EventManagerAwareTrait;
 use Zend\Authentication\Exception;
@@ -10,11 +15,6 @@ use Zend\Authentication\Exception;
 class Authentication extends AuthenticationService implements EventManagerAwareInterface
 {
     use EventManagerAwareTrait;
-
-    const
-        EVENT_SUCCESS = 'on.success.login',
-        EVENT_FAIL = 'on.fail.login',
-        EVENT_LOGOUT = 'on.logout';
 
     protected $defaultListeners = [
         'MintSoft\Authentication\Listener\LogListener'
@@ -33,21 +33,63 @@ class Authentication extends AuthenticationService implements EventManagerAwareI
 
     public function authenticate(AdapterInterface $adapter = null)
     {
+        $adapter      = is_null($adapter) ? $this->getAdapter() : $adapter;
+        $eventManager = $this->getEventManager();
+        $event        = (new AuthenticationEvent)
+            ->setIdentity($adapter->getIdentity())
+            ->setCredential($adapter->getCredential());
 
-        $result = parent::authenticate($adapter);
-        if ($result->isValid()) {
-            $this->getEventManager()->trigger(self::EVENT_SUCCESS, $this);
-        } else {
-            $this->getEventManager()->trigger(self::EVENT_FAIL, $this);
+        $eventManager->trigger(AuthenticationEvent::EVENT_LOGIN, $event);
+        $authenticationResult = $event->getResult();
+        if (!$authenticationResult) {
+            $authenticationResult = $adapter->authenticate();
         }
 
-        return $result;
+        if ($this->hasIdentity()) {
+            $this->clearIdentity();
+        }
+
+        if ($authenticationResult->isValid()) {
+            $eventManager->trigger(AuthenticationEvent::EVENT_SUCCESS, $event);
+            $this->getStorage()->write($authenticationResult->getIdentity());
+        } else {
+            $eventManager->trigger(AuthenticationEvent::EVENT_FAIL, $event);
+        }
+
+        return $authenticationResult;
     }
 
     public function clearIdentity()
     {
-        $this->getEventManager()->trigger(self::EVENT_LOGOUT, $this);
+        if ($this->hasIdentity()) {
+            $event = new AuthenticationEvent();
+            $event->setIdentity($this->getIdentity());
+            $this->getEventManager()->trigger(AuthenticationEvent::EVENT_LOGOUT, $event);
+        }
 
         return parent::clearIdentity();
+    }
+
+    /**
+     * @return Adapter\ValidatableAdapterInterface
+     * @throws \Exception
+     */
+    public function getAdapter()
+    {
+        $adapter = parent::getAdapter();
+        if (!$adapter) {
+            $this->setAdapter(new FakeAdapter);
+        }
+
+        return $this->adapter;
+    }
+
+    public function setAdapter(Adapter\AdapterInterface $adapter)
+    {
+        if (!$adapter instanceof Adapter\ValidatableAdapterInterface) {
+            throw new \Exception('An authentication adapter must be instance of ValidatableAdapterInterface prior to calling authenticate()');
+        }
+
+        return parent::setAdapter($adapter);
     }
 }

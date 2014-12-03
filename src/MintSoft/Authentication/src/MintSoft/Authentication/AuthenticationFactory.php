@@ -21,8 +21,9 @@ class AuthenticationFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        return (new Authentication)
-            ->setAdapter($serviceLocator->get('MintSoft\AuthenticationAdapter'))
-            ->setStorage($serviceLocator->get('MintSoft\AuthenticationStorage'));
+        $adapter = $serviceLocator->has('MintSoft\AuthenticationAdapter') ? $serviceLocator->get('MintSoft\AuthenticationAdapter') : null;
+        $storage = $serviceLocator->has('MintSoft\AuthenticationStorage') ? $serviceLocator->get('MintSoft\AuthenticationStorage') : null;
+
+        return new Authentication($storage, $adapter);
     }
 }

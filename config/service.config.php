@@ -4,7 +4,7 @@ return [
     'factories' => [
         'MintSoft\Authentication'        => 'MintSoft\Authentication\AuthenticationFactory',
         'MintSoft\AuthenticationStorage' => 'MintSoft\Authentication\Factory\StorageFactory',
-        'MintSoft\AuthenticationAdapter' => 'MintSoft\Authentication\Factory\AdapterFactory'
+        //'MintSoft\AuthenticationAdapter' => null,
     ],
     'aliases'   => [
         'Zend\Authentication\AuthenticationService'    => 'MintSoft\Authentication',

@@ -1,6 +1,6 @@
 <?php
 return [
     'factories' => [
-        'auth' => 'Authenticate\Mvc\Controller\Plugin\AuthenticationFactory',
+        'auth' => 'MintSoft\Authentication\Mvc\Controller\Plugin\AuthenticationFactory',
     ]
 ];
