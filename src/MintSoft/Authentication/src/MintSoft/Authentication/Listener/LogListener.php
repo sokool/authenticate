@@ -29,7 +29,7 @@ class LogListener implements ListenerAggregateInterface
 
     public function onSuccess(AuthenticationEvent $authEvent)
     {
-        Debugger::dump(__METHOD__);
+//        Debugger::dump(__METHOD__);
 //        Debugger::dump($authEvent->getIdentity());
 //        Debugger::dump($authEvent->getCredential());
         //Debugger::dump($authEvent->getResult());
@@ -37,7 +37,7 @@ class LogListener implements ListenerAggregateInterface
 
     public function onFail(AuthenticationEvent $authEvent)
     {
-        Debugger::dump(__METHOD__);
+        //Debugger::dump(__METHOD__);
 //        Debugger::dump($authEvent->getIdentity());
 //        Debugger::dump($authEvent->getCredential());
         //Debugger::dump($authEvent->getResult());
@@ -46,7 +46,7 @@ class LogListener implements ListenerAggregateInterface
     public function onLogout(AuthenticationEvent $authEvent)
     {
         //  Debugger::dump($a->getTarget()->getIdentity());
-        Debugger::dump(__METHOD__);
+//        Debugger::dump(__METHOD__);
 //        Debugger::dump($authEvent->getIdentity());
 //        Debugger::dump($authEvent->getCredential());
         //Debugger::dump($authEvent->getResult());
@@ -54,7 +54,7 @@ class LogListener implements ListenerAggregateInterface
 
     public function onLogin(AuthenticationEvent $authEvent)
     {
-        Debugger::dump(__METHOD__);
+//        Debugger::dump(__METHOD__);
 //        Debugger::dump($authEvent->getIdentity());
 //        Debugger::dump($authEvent->getCredential());
 
