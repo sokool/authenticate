@@ -30,16 +30,16 @@ class LogListener implements ListenerAggregateInterface
     public function onSuccess(AuthenticationEvent $authEvent)
     {
         Debugger::dump(__METHOD__);
-        Debugger::dump($authEvent->getIdentity());
-        Debugger::dump($authEvent->getCredential());
+//        Debugger::dump($authEvent->getIdentity());
+//        Debugger::dump($authEvent->getCredential());
         //Debugger::dump($authEvent->getResult());
     }
 
     public function onFail(AuthenticationEvent $authEvent)
     {
         Debugger::dump(__METHOD__);
-        Debugger::dump($authEvent->getIdentity());
-        Debugger::dump($authEvent->getCredential());
+//        Debugger::dump($authEvent->getIdentity());
+//        Debugger::dump($authEvent->getCredential());
         //Debugger::dump($authEvent->getResult());
     }
 
@@ -47,18 +47,18 @@ class LogListener implements ListenerAggregateInterface
     {
         //  Debugger::dump($a->getTarget()->getIdentity());
         Debugger::dump(__METHOD__);
-        Debugger::dump($authEvent->getIdentity());
-        Debugger::dump($authEvent->getCredential());
+//        Debugger::dump($authEvent->getIdentity());
+//        Debugger::dump($authEvent->getCredential());
         //Debugger::dump($authEvent->getResult());
     }
 
     public function onLogin(AuthenticationEvent $authEvent)
     {
         Debugger::dump(__METHOD__);
-        Debugger::dump($authEvent->getIdentity());
-        Debugger::dump($authEvent->getCredential());
+//        Debugger::dump($authEvent->getIdentity());
+//        Debugger::dump($authEvent->getCredential());
 
-        $authEvent->setResult(new AuthenticationResult(AuthenticationResult::SUCCESS, $authEvent->getIdentity()));
+    //    $authEvent->setResult(new AuthenticationResult(AuthenticationResult::SUCCESS, $authEvent->getIdentity()));
         //Debugger::dump($authEvent->getResult());
     }
 } 

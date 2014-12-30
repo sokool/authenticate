@@ -1,20 +1,17 @@
 <?php
 
 return [
-    'mint-soft-authentication' => [
-        'on-login' => function (\Zend\Authentication\Adapter\ValidatableAdapterInterface $adapter) {
-            ///\Nette\Diagnostics\Debugger::dump($adapter->getIdentity());
-
-            return true;
-
-        }
+    'mintsoft'    => [
+        'authentication' => [
+            'test' => 'asd',
+        ]
     ],
-    'controllers'              => array(
+    'controllers' => array(
         'invokables' => array(
             'MintSoft\Authenticate' => 'MintSoft\Authentication\Controller\AuthenticateController',
         ),
     ),
-    'router'                   => array(
+    'router'      => array(
         'routes' => array(
             'login'  => array(
                 'type'    => 'Literal',
