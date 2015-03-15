@@ -12,7 +12,7 @@
     "homepage": "https://github.com/sokool/authenticate",
     "require": {
         "php": ">=5.4",
-        "zendframework/zendframework": "2.3.3",
+        "zendframework/zendframework": ">=2.3",
         "webino/zf2nette-debug": "1.*"
     },
     "autoload": {
